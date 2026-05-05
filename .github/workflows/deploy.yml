@@ -17,7 +17,8 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /root
+            cd /home/ubuntu/git_cicd_demo
             git pull origin main
             go build -o app main.go
-            systemctl restart go-demo
+            sudo systemctl restart go-demo
+            sudo systemctl status go-demo --no-pager
